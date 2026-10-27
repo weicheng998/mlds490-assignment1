@@ -1,0 +1,335 @@
+{
+ "T1 transition model edge cases": {
+  "pass": true,
+  "rows_sum_to_1": true,
+  "P_hold(200->200)": 1.0,
+  "P_hold(198->200) (pred 0.8: A in {2,3,4,5})": 0.8,
+  "R_dispatch(0) (pred -100)": -100.0,
+  "R_dispatch(20) (pred -100-2*5=-110)": -110.0
+ },
+ "T2 enumeration / VI / PI agree": {
+  "pass": true,
+  "max|V_enum0 - V_PI|": 4.940375220030546e-09,
+  "theory bound gamma^T*||V*||": 2.780009857958381e-08,
+  "max|V_VI - V_PI|": 4.940375220030546e-09,
+  "policies identical": true,
+  "threshold": 13,
+  "pure threshold": true,
+  "VI iterations": 500,
+  "PI iterations": 6
+ },
+ "T3 Bellman residual and gamma-contraction": {
+  "pass": true,
+  "||TV - V||_inf": 4.547473508864641e-13,
+  "max VI residual ratio (pred <= 0.95)": 0.9500000000000002,
+  "VI residual ratio late (pred ~0.95)": 0.9499927510718058
+ },
+ "T4 Monte Carlo simulation matches V* (|z|<3.5)": {
+  "pass": true,
+  "s0=0": {
+   "MC mean": -575.56,
+   "SE": 0.5,
+   "V*": -576.67,
+   "z": 2.23
+  },
+  "s0=13": {
+   "MC mean": -675.84,
+   "SE": 0.49,
+   "V*": -676.67,
+   "z": 1.69
+  },
+  "s0=50": {
+   "MC mean": -1001.53,
+   "SE": 0.48,
+   "V*": -1001.53,
+   "z": -0.01
+  },
+  "s0=120": {
+   "MC mean": -2064.37,
+   "SE": 0.79,
+   "V*": -2065.05,
+   "z": 0.85
+  },
+  "s0=200": {
+   "MC mean": -3821.12,
+   "SE": 1.18,
+   "V*": -3821.59,
+   "z": 0.4
+  }
+ },
+ "T5 brute force over 202 threshold policies": {
+  "pass": true,
+  "best threshold": 13,
+  "PI threshold": 13,
+  "some threshold beats V* somewhere": false,
+  "V_never-dispatch(0)": -2203.9,
+  "V_always-dispatch(0)": -2000.0,
+  "V*(0)": -576.7
+ },
+ "T6 analytic toy cases": {
+  "pass": true,
+  "ch=0: max|V*| (pred 0)": 0.0,
+  "ch=0: any dispatch (pred False)": false,
+  "cf=0: max|V*(s<=15)| (pred 0)": 1.974560865691226e-12,
+  "cf=0: dispatch for all s>=1 (pred True)": true,
+  "deterministic A=5,K=200: closed-form best cycle m*": 5,
+  "closed-form V(5)": -759.532035,
+  "solver V(5)": -759.532035,
+  "solver threshold (pred in ((m*-1)a, m*a]; only multiples of a reachable)": 21
+ },
+ "T7 comparative statics: threshold up in cf, down in ch, down in gamma (10^6 = never)": {
+  "pass": true,
+  "cf=25": 8,
+  "cf=50": 11,
+  "cf=100": 13,
+  "cf=200": 14,
+  "cf=400": 15,
+  "ch=0.5": 15,
+  "ch=1": 14,
+  "ch=2": 13,
+  "ch=4": 11,
+  "ch=8": 8,
+  "gamma=0.5": 1000000,
+  "gamma=0.6": 1000000,
+  "gamma=0.69": 1000000,
+  "gamma=0.7": 1000000,
+  "gamma=0.72": 15,
+  "gamma=0.75": 15,
+  "gamma=0.8": 14,
+  "gamma=0.9": 13,
+  "gamma=0.95": 13,
+  "gamma=0.99": 13,
+  "gammas where ch*K/(1-gamma) < cf (pred never dispatch)": [
+   0.5,
+   0.6,
+   0.69,
+   0.7
+  ]
+ },
+ "T8 finite-horizon checks": {
+  "pass": true,
+  "dispatch anywhere at t=T-1 (pred False)": false,
+  "expectimax vs enumeration, T=6, (indep, enum)": {
+   "0": [
+    -74.724328,
+    -74.724328
+   ],
+   "7": [
+    -145.624211,
+    -145.624211
+   ],
+   "13": [
+    -174.724328,
+    -174.724328
+   ],
+   "30": [
+    -299.724328,
+    -299.724328
+   ]
+  },
+  "first t where policy differs from stationary": 495,
+  "thresholds at t=T-5..T-1": [
+   12,
+   14,
+   null,
+   null,
+   null
+  ]
+ },
+ "T9 cap 200 vs 400": {
+  "pass": true,
+  "policy identical on 0..200": true,
+  "max|dV| on s<=100": 2.2737367544323206e-13,
+  "V(200) cap200 vs cap400": [
+   -3821.59,
+   -3821.59
+  ]
+ },
+ "trace": [
+  {
+   "t": 0,
+   "s": 0,
+   "V*(s)": -576.7,
+   "action": "hold",
+   "cost": 0.0,
+   "arrivals": 3,
+   "s_next": 3
+  },
+  {
+   "t": 1,
+   "s": 3,
+   "V*(s)": -607.6,
+   "action": "hold",
+   "cost": 6.0,
+   "arrivals": 3,
+   "s_next": 6
+  },
+  {
+   "t": 2,
+   "s": 6,
+   "V*(s)": -633.6,
+   "action": "hold",
+   "cost": 12.0,
+   "arrivals": 4,
+   "s_next": 10
+  },
+  {
+   "t": 3,
+   "s": 10,
+   "V*(s)": -660.1,
+   "action": "hold",
+   "cost": 20.0,
+   "arrivals": 5,
+   "s_next": 15
+  },
+  {
+   "t": 4,
+   "s": 15,
+   "V*(s)": -676.7,
+   "action": "dispatch",
+   "cost": 100.0,
+   "arrivals": 1,
+   "s_next": 1
+  },
+  {
+   "t": 5,
+   "s": 1,
+   "V*(s)": -587.4,
+   "action": "hold",
+   "cost": 2.0,
+   "arrivals": 1,
+   "s_next": 2
+  },
+  {
+   "t": 6,
+   "s": 2,
+   "V*(s)": -597.8,
+   "action": "hold",
+   "cost": 4.0,
+   "arrivals": 5,
+   "s_next": 7
+  },
+  {
+   "t": 7,
+   "s": 7,
+   "V*(s)": -641.6,
+   "action": "hold",
+   "cost": 14.0,
+   "arrivals": 5,
+   "s_next": 12
+  },
+  {
+   "t": 8,
+   "s": 12,
+   "V*(s)": -672.9,
+   "action": "hold",
+   "cost": 24.0,
+   "arrivals": 2,
+   "s_next": 14
+  },
+  {
+   "t": 9,
+   "s": 14,
+   "V*(s)": -676.7,
+   "action": "dispatch",
+   "cost": 100.0,
+   "arrivals": 2,
+   "s_next": 2
+  },
+  {
+   "t": 0,
+   "s": 40,
+   "V*(s)": -893.3,
+   "action": "dispatch",
+   "cost": 150.0,
+   "arrivals": 5,
+   "s_next": 30
+  },
+  {
+   "t": 1,
+   "s": 30,
+   "V*(s)": -801.7,
+   "action": "dispatch",
+   "cost": 130.0,
+   "arrivals": 3,
+   "s_next": 18
+  },
+  {
+   "t": 2,
+   "s": 18,
+   "V*(s)": -707.6,
+   "action": "dispatch",
+   "cost": 106.0,
+   "arrivals": 2,
+   "s_next": 5
+  },
+  {
+   "t": 3,
+   "s": 5,
+   "V*(s)": -625.4,
+   "action": "hold",
+   "cost": 10.0,
+   "arrivals": 5,
+   "s_next": 10
+  },
+  {
+   "t": 4,
+   "s": 10,
+   "V*(s)": -660.1,
+   "action": "hold",
+   "cost": 20.0,
+   "arrivals": 2,
+   "s_next": 12
+  },
+  {
+   "t": 5,
+   "s": 12,
+   "V*(s)": -672.9,
+   "action": "hold",
+   "cost": 24.0,
+   "arrivals": 3,
+   "s_next": 15
+  },
+  {
+   "t": 6,
+   "s": 15,
+   "V*(s)": -676.7,
+   "action": "dispatch",
+   "cost": 100.0,
+   "arrivals": 4,
+   "s_next": 4
+  },
+  {
+   "t": 7,
+   "s": 4,
+   "V*(s)": -616.8,
+   "action": "hold",
+   "cost": 8.0,
+   "arrivals": 3,
+   "s_next": 7
+  },
+  {
+   "t": 8,
+   "s": 7,
+   "V*(s)": -641.6,
+   "action": "hold",
+   "cost": 14.0,
+   "arrivals": 1,
+   "s_next": 8
+  },
+  {
+   "t": 9,
+   "s": 8,
+   "V*(s)": -648.9,
+   "action": "hold",
+   "cost": 16.0,
+   "arrivals": 1,
+   "s_next": 9
+  }
+ ],
+ "summary": {
+  "threshold": 13,
+  "V*(0)": -576.6701677662195,
+  "V*(200)": -3821.5864771838897
+ }
+}

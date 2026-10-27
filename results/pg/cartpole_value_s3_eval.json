@@ -1,0 +1,10 @@
+{
+ "run": "cartpole_value_s3",
+ "n": 500,
+ "greedy": false,
+ "mean": 188.882,
+ "std": 7.304984709306817,
+ "min": 169.0,
+ "max": 210.0,
+ "mean_len": 188.882
+}

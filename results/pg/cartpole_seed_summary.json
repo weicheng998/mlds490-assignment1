@@ -1,0 +1,82 @@
+{
+ "none": {
+  "seeds": 5,
+  "mean return over all training episodes (per seed)": [
+   51.9,
+   9.4,
+   132.8,
+   77.9,
+   200.8
+  ],
+  "first episode with MA100 >= 475 (per seed)": [
+   null,
+   null,
+   null,
+   null,
+   1510
+  ],
+  "final MA100 (per seed)": [
+   88.6,
+   9.3,
+   170.7,
+   22.2,
+   403.3
+  ],
+  "across-seed std of MA100, averaged over training": 83.1124004344364,
+  "within-run std of episode reward over the last 500 episodes (mean over seeds)": 74.0031553776973,
+  "eval mean per seed": [
+   67.8,
+   9.4,
+   106.8,
+   21.6,
+   449.0
+  ],
+  "eval std per seed": [
+   19.9,
+   0.8,
+   5.5,
+   5.3,
+   63.1
+  ]
+ },
+ "value": {
+  "seeds": 5,
+  "mean return over all training episodes (per seed)": [
+   451.1,
+   251.4,
+   352.5,
+   259.9,
+   260.7
+  ],
+  "first episode with MA100 >= 475 (per seed)": [
+   191,
+   1464,
+   1080,
+   1174,
+   250
+  ],
+  "final MA100 (per seed)": [
+   500.0,
+   500.0,
+   500.0,
+   294.9,
+   179.6
+  ],
+  "across-seed std of MA100, averaged over training": 127.09448611159675,
+  "within-run std of episode reward over the last 500 episodes (mean over seeds)": 76.69503422417333,
+  "eval mean per seed": [
+   500.0,
+   500.0,
+   500.0,
+   188.9,
+   178.7
+  ],
+  "eval std per seed": [
+   0.0,
+   0.0,
+   0.0,
+   7.3,
+   22.7
+  ]
+ }
+}

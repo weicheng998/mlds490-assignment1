@@ -1,0 +1,18 @@
+[PASS] P1 reward-to-go: {"max err vs brute force": 1.7763568394002505e-15, "gamma=0 err": 0.0, "gamma=1 err": 0.0, "G_0 of 500-step CartPole episode (pred (1-0.95^500)/0.05=20.0)": 20.0}
+[PASS] P2 exact-gradient check on a 2-step MDP (M=20000 episodes): {"none": {"max|z| vs rtg target": 1.51, "max|z| vs gamma^t target": 18.7, "trace Cov(grad)": 3.5404}, "true V": {"max|z| vs rtg target": 0.38, "max|z| vs gamma^t target": 23.57, "trace Cov(grad)": 1.0617}, "bad V (+5, -3)": {"max|z| vs rtg target": 1.25, "max|z| vs gamma^t target": 3.27, "trace Cov(grad)": 24.7015}}
+[PASS] P4 Pong preprocessing, motion input and action mapping: {"paddle dy after 6x action 2 (pred <0, up)": -33.5, "after 6x action 3 (pred >0)": 43.5, "after 6x NOOP (pred 0)": 0.0, "PONG_ACTIONS": [2, 3], "non-zero pixels in preprocessed frame (pred small; bg erased)": 18, "env obs unchanged by preprocess (we pass a copy)": true, "first diff after reset all zero": true, "max non-zero diff pixels in 30 NOOP steps": 18, "our paddle column (70) appears in diff under NOOP (pred False)": false}
+[PASS] P5 seeding / reproducibility: {"same seed identical": true, "new seed differs": true}
+
+First 10 steps, CartPole (random init); episode length 17:
+ t | x, x_dot, theta, theta_dot          | pi(left),pi(right) | a | r | G_t    | V(s)   | G_t-V(s)
+ 0 | -0.000, +0.043, +0.049, +0.008 | 0.514, 0.486       | 1 | 1 | 11.638 | -0.006 | +11.644
+ 1 | +0.001, +0.238, +0.049, -0.269 | 0.519, 0.481       | 0 | 1 | 11.197 | -0.020 | +11.218
+ 2 | +0.005, +0.042, +0.044, +0.039 | 0.514, 0.486       | 0 | 1 | 10.734 | -0.003 | +10.737
+ 3 | +0.006, -0.154, +0.045, +0.345 | 0.509, 0.491       | 0 | 1 | 10.247 |  0.028 | +10.219
+ 4 | +0.003, -0.350, +0.052, +0.652 | 0.502, 0.498       | 1 | 1 |  9.733 |  0.035 | +9.698
+ 5 | -0.004, -0.155, +0.065, +0.376 | 0.509, 0.491       | 1 | 1 |  9.193 |  0.033 | +9.160
+ 6 | -0.007, +0.039, +0.072, +0.104 | 0.513, 0.487       | 0 | 1 |  8.624 |  0.006 | +8.618
+ 7 | -0.006, -0.157, +0.074, +0.419 | 0.509, 0.491       | 1 | 1 |  8.025 |  0.038 | +7.987
+ 8 | -0.009, +0.037, +0.083, +0.150 | 0.513, 0.487       | 1 | 1 |  7.395 |  0.010 | +7.385
+ 9 | -0.009, +0.231, +0.086, -0.115 | 0.518, 0.482       | 0 | 1 |  6.732 | -0.002 | +6.733
+   G_t at the last 3 steps: [2.852, 1.95, 1.0] (truncation at 500: returns shrink to 1 near the end even though the pole is up)

@@ -1,0 +1,31 @@
+[PASS] T1 transition model edge cases: {'rows_sum_to_1': True, 'P_hold(200->200)': np.float64(1.0), 'P_hold(198->200) (pred 0.8: A in {2,3,4,5})': np.float64(0.8), 'R_dispatch(0) (pred -100)': np.float64(-100.0), 'R_dispatch(20) (pred -100-2*5=-110)': np.float64(-110.0)}
+[PASS] T2 enumeration / VI / PI agree: {'max|V_enum0 - V_PI|': 4.940375220030546e-09, 'theory bound gamma^T*||V*||': 2.780009857958381e-08, 'max|V_VI - V_PI|': 4.940375220030546e-09, 'policies identical': True, 'threshold': 13, 'pure threshold': True, 'VI iterations': 500, 'PI iterations': 6}
+[PASS] T3 Bellman residual and gamma-contraction: {'||TV - V||_inf': 4.547473508864641e-13, 'max VI residual ratio (pred <= 0.95)': 0.9500000000000002, 'VI residual ratio late (pred ~0.95)': 0.9499927510718058}
+[PASS] T4 Monte Carlo simulation matches V* (|z|<3.5): {'s0=0': {'MC mean': np.float64(-575.56), 'SE': np.float64(0.5), 'V*': np.float64(-576.67), 'z': np.float64(2.23)}, 's0=13': {'MC mean': np.float64(-675.84), 'SE': np.float64(0.49), 'V*': np.float64(-676.67), 'z': np.float64(1.69)}, 's0=50': {'MC mean': np.float64(-1001.53), 'SE': np.float64(0.48), 'V*': np.float64(-1001.53), 'z': np.float64(-0.01)}, 's0=120': {'MC mean': np.float64(-2064.37), 'SE': np.float64(0.79), 'V*': np.float64(-2065.05), 'z': np.float64(0.85)}, 's0=200': {'MC mean': np.float64(-3821.12), 'SE': np.float64(1.18), 'V*': np.float64(-3821.59), 'z': np.float64(0.4)}}
+[PASS] T5 brute force over 202 threshold policies: {'best threshold': 13, 'PI threshold': 13, 'some threshold beats V* somewhere': False, 'V_never-dispatch(0)': np.float64(-2203.9), 'V_always-dispatch(0)': np.float64(-2000.0), 'V*(0)': np.float64(-576.7)}
+[PASS] T6 analytic toy cases: {'ch=0: max|V*| (pred 0)': 0.0, 'ch=0: any dispatch (pred False)': False, 'cf=0: max|V*(s<=15)| (pred 0)': 1.974560865691226e-12, 'cf=0: dispatch for all s>=1 (pred True)': True, 'deterministic A=5,K=200: closed-form best cycle m*': 5, 'closed-form V(5)': -759.532035, 'solver V(5)': np.float64(-759.532035), 'solver threshold (pred in ((m*-1)a, m*a]; only multiples of a reachable)': 21}
+[PASS] T7 comparative statics: threshold up in cf, down in ch, down in gamma (10^6 = never): {'cf=25': 8, 'cf=50': 11, 'cf=100': 13, 'cf=200': 14, 'cf=400': 15, 'ch=0.5': 15, 'ch=1': 14, 'ch=2': 13, 'ch=4': 11, 'ch=8': 8, 'gamma=0.5': 1000000, 'gamma=0.6': 1000000, 'gamma=0.69': 1000000, 'gamma=0.7': 1000000, 'gamma=0.72': 15, 'gamma=0.75': 15, 'gamma=0.8': 14, 'gamma=0.9': 13, 'gamma=0.95': 13, 'gamma=0.99': 13, 'gammas where ch*K/(1-gamma) < cf (pred never dispatch)': [0.5, 0.6, 0.69, 0.7]}
+[PASS] T8 finite-horizon checks: {'dispatch anywhere at t=T-1 (pred False)': False, 'expectimax vs enumeration, T=6, (indep, enum)': {0: (-74.724328, np.float64(-74.724328)), 7: (-145.624211, np.float64(-145.624211)), 13: (-174.724328, np.float64(-174.724328)), 30: (-299.724328, np.float64(-299.724328))}, 'first t where policy differs from stationary': 495, 'thresholds at t=T-5..T-1': [12, 14, None, None, None]}
+[PASS] T9 cap 200 vs 400: {'policy identical on 0..200': True, 'max|dV| on s<=100': 2.2737367544323206e-13, 'V(200) cap200 vs cap400': (np.float64(-3821.59), np.float64(-3821.59))}
+
+First 10 steps under the optimal policy (s0=0 and s0=40):
+   {'t': 0, 's': 0, 'V*(s)': np.float64(-576.7), 'action': 'hold', 'cost': 0.0, 'arrivals': 3, 's_next': 3}
+   {'t': 1, 's': 3, 'V*(s)': np.float64(-607.6), 'action': 'hold', 'cost': 6.0, 'arrivals': 3, 's_next': 6}
+   {'t': 2, 's': 6, 'V*(s)': np.float64(-633.6), 'action': 'hold', 'cost': 12.0, 'arrivals': 4, 's_next': 10}
+   {'t': 3, 's': 10, 'V*(s)': np.float64(-660.1), 'action': 'hold', 'cost': 20.0, 'arrivals': 5, 's_next': 15}
+   {'t': 4, 's': 15, 'V*(s)': np.float64(-676.7), 'action': 'dispatch', 'cost': 100.0, 'arrivals': 1, 's_next': 1}
+   {'t': 5, 's': 1, 'V*(s)': np.float64(-587.4), 'action': 'hold', 'cost': 2.0, 'arrivals': 1, 's_next': 2}
+   {'t': 6, 's': 2, 'V*(s)': np.float64(-597.8), 'action': 'hold', 'cost': 4.0, 'arrivals': 5, 's_next': 7}
+   {'t': 7, 's': 7, 'V*(s)': np.float64(-641.6), 'action': 'hold', 'cost': 14.0, 'arrivals': 5, 's_next': 12}
+   {'t': 8, 's': 12, 'V*(s)': np.float64(-672.9), 'action': 'hold', 'cost': 24.0, 'arrivals': 2, 's_next': 14}
+   {'t': 9, 's': 14, 'V*(s)': np.float64(-676.7), 'action': 'dispatch', 'cost': 100.0, 'arrivals': 2, 's_next': 2}
+   {'t': 0, 's': 40, 'V*(s)': np.float64(-893.3), 'action': 'dispatch', 'cost': 150.0, 'arrivals': 5, 's_next': 30}
+   {'t': 1, 's': 30, 'V*(s)': np.float64(-801.7), 'action': 'dispatch', 'cost': 130.0, 'arrivals': 3, 's_next': 18}
+   {'t': 2, 's': 18, 'V*(s)': np.float64(-707.6), 'action': 'dispatch', 'cost': 106.0, 'arrivals': 2, 's_next': 5}
+   {'t': 3, 's': 5, 'V*(s)': np.float64(-625.4), 'action': 'hold', 'cost': 10.0, 'arrivals': 5, 's_next': 10}
+   {'t': 4, 's': 10, 'V*(s)': np.float64(-660.1), 'action': 'hold', 'cost': 20.0, 'arrivals': 2, 's_next': 12}
+   {'t': 5, 's': 12, 'V*(s)': np.float64(-672.9), 'action': 'hold', 'cost': 24.0, 'arrivals': 3, 's_next': 15}
+   {'t': 6, 's': 15, 'V*(s)': np.float64(-676.7), 'action': 'dispatch', 'cost': 100.0, 'arrivals': 4, 's_next': 4}
+   {'t': 7, 's': 4, 'V*(s)': np.float64(-616.8), 'action': 'hold', 'cost': 8.0, 'arrivals': 3, 's_next': 7}
+   {'t': 8, 's': 7, 'V*(s)': np.float64(-641.6), 'action': 'hold', 'cost': 14.0, 'arrivals': 1, 's_next': 8}
+   {'t': 9, 's': 8, 'V*(s)': np.float64(-648.9), 'action': 'hold', 'cost': 16.0, 'arrivals': 1, 's_next': 9}

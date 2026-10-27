@@ -1,0 +1,316 @@
+{
+ "P1 reward-to-go": {
+  "pass": true,
+  "max err vs brute force": 1.7763568394002505e-15,
+  "gamma=0 err": 0.0,
+  "gamma=1 err": 0.0,
+  "G_0 of 500-step CartPole episode (pred (1-0.95^500)/0.05=20.0)": 20.0
+ },
+ "P2 exact-gradient check on a 2-step MDP (M=20000 episodes)": {
+  "pass": true,
+  "none": {
+   "max|z| vs rtg target": 1.51,
+   "max|z| vs gamma^t target": 18.7,
+   "trace Cov(grad)": 3.5404
+  },
+  "true V": {
+   "max|z| vs rtg target": 0.38,
+   "max|z| vs gamma^t target": 23.57,
+   "trace Cov(grad)": 1.0617
+  },
+  "bad V (+5, -3)": {
+   "max|z| vs rtg target": 1.25,
+   "max|z| vs gamma^t target": 3.27,
+   "trace Cov(grad)": 24.7015
+  }
+ },
+ "P3 reward-sign / zero-lr control on CartPole (500 eps, 5 seeds)": {
+  "pass": true,
+  "+1 reward, no baseline": {
+   "last-50 mean length per seed": [
+    205.6,
+    9.3,
+    322.9,
+    107.2,
+    32.2
+   ],
+   "median": 107.2
+  },
+  "+1 reward, value baseline": {
+   "last-50 mean length per seed": [
+    148.6,
+    500.0,
+    138.6,
+    498.4,
+    411.7
+   ],
+   "median": 411.7
+  },
+  "lr = 0": {
+   "last-50 mean length per seed": [
+    18.9,
+    28.8,
+    21.2,
+    25.1,
+    21.8
+   ],
+   "median": 21.8
+  },
+  "-1 reward": {
+   "last-50 mean length per seed": [
+    9.3,
+    9.4,
+    9.4,
+    9.4,
+    9.4
+   ],
+   "median": 9.4
+  },
+  "prediction": "every -1 seed < 12; every lr=0 seed in (12,40) (random ~22); median(+1, baseline) > 100; median(+1, no baseline) > median(lr=0)"
+ },
+ "P4 Pong preprocessing, motion input and action mapping": {
+  "pass": true,
+  "paddle dy after 6x action 2 (pred <0, up)": -33.5,
+  "after 6x action 3 (pred >0)": 43.5,
+  "after 6x NOOP (pred 0)": 0.0,
+  "PONG_ACTIONS": [
+   2,
+   3
+  ],
+  "non-zero pixels in preprocessed frame (pred small; bg erased)": 18,
+  "env obs unchanged by preprocess (we pass a copy)": true,
+  "first diff after reset all zero": true,
+  "max non-zero diff pixels in 30 NOOP steps": 18,
+  "our paddle column (70) appears in diff under NOOP (pred False)": false
+ },
+ "P5 seeding / reproducibility": {
+  "pass": true,
+  "same seed identical": true,
+  "new seed differs": true
+ },
+ "trace_cartpole": {
+  "model": "cartpole_value_s0",
+  "length": 500,
+  "rows": [
+   {
+    "t": 0,
+    "state": [
+     -0.0003225412801839411,
+     0.043295715004205704,
+     0.0490279383957386,
+     0.008167749270796776
+    ],
+    "pi": [
+     0.03375006467103958,
+     0.966249942779541
+    ],
+    "a": 1,
+    "r": 1.0,
+    "G": 19.999977111816406,
+    "V": 19.241703033447266
+   },
+   {
+    "t": 1,
+    "state": [
+     0.0005433730548247695,
+     0.23768150806427002,
+     0.04919129237532616,
+     -0.2686521112918854
+    ],
+    "pi": [
+     0.8576847314834595,
+     0.14231528341770172
+    ],
+    "a": 0,
+    "r": 1.0,
+    "G": 19.999977111816406,
+    "V": 19.20510482788086
+   },
+   {
+    "t": 2,
+    "state": [
+     0.00529700331389904,
+     0.04189331457018852,
+     0.04381825029850006,
+     0.03913131728768349
+    ],
+    "pi": [
+     0.015188549645245075,
+     0.9848114252090454
+    ],
+    "a": 1,
+    "r": 1.0,
+    "G": 19.999977111816406,
+    "V": 19.265165328979492
+   },
+   {
+    "t": 3,
+    "state": [
+     0.006134869530797005,
+     0.23636041581630707,
+     0.04460087791085243,
+     -0.2394108921289444
+    ],
+    "pi": [
+     0.7502545118331909,
+     0.2497454732656479
+    ],
+    "a": 0,
+    "r": 1.0,
+    "G": 19.999977111816406,
+    "V": 19.226566314697266
+   },
+   {
+    "t": 4,
+    "state": [
+     0.010862077586352825,
+     0.040630631148815155,
+     0.039812661707401276,
+     0.0670001208782196
+    ],
+    "pi": [
+     0.006778506562113762,
+     0.9932215213775635
+    ],
+    "a": 1,
+    "r": 1.0,
+    "G": 19.999977111816406,
+    "V": 19.285175323486328
+   },
+   {
+    "t": 5,
+    "state": [
+     0.011674690060317516,
+     0.23515984416007996,
+     0.04115266352891922,
+     -0.21286062896251678
+    ],
+    "pi": [
+     0.5903362035751343,
+     0.4096638560295105
+    ],
+    "a": 1,
+    "r": 1.0,
+    "G": 19.999977111816406,
+    "V": 19.244659423828125
+   },
+   {
+    "t": 6,
+    "state": [
+     0.0163778867572546,
+     0.4296700060367584,
+     0.036895450204610825,
+     -0.4922833740711212
+    ],
+    "pi": [
+     0.9942336678504944,
+     0.005766334477812052
+    ],
+    "a": 0,
+    "r": 1.0,
+    "G": 19.999977111816406,
+    "V": 19.05687141418457
+   },
+   {
+    "t": 7,
+    "state": [
+     0.024971287697553635,
+     0.23404759168624878,
+     0.027049781754612923,
+     -0.18820466101169586
+    ],
+    "pi": [
+     0.5561445355415344,
+     0.4438554346561432
+    ],
+    "a": 0,
+    "r": 1.0,
+    "G": 19.999977111816406,
+    "V": 19.261091232299805
+   },
+   {
+    "t": 8,
+    "state": [
+     0.02965223789215088,
+     0.03854929283261299,
+     0.02328568883240223,
+     0.1128871738910675
+    ],
+    "pi": [
+     0.0026356393937021494,
+     0.997364342212677
+    ],
+    "a": 1,
+    "r": 1.0,
+    "G": 19.999977111816406,
+    "V": 19.31479263305664
+   },
+   {
+    "t": 9,
+    "state": [
+     0.030423223972320557,
+     0.23332998156547546,
+     0.02554343268275261,
+     -0.17235927283763885
+    ],
+    "pi": [
+     0.4251481592655182,
+     0.5748518109321594
+    ],
+    "a": 0,
+    "r": 1.0,
+    "G": 19.999977111816406,
+    "V": 19.268291473388672
+   }
+  ],
+  "G at last 3 steps (truncation edge case)": [
+   2.8524999618530273,
+   1.9500000476837158,
+   1.0
+  ]
+ },
+ "P6 gradient variance with vs without baseline (cartpole)": {
+  "pass": true,
+  "cartpole_value_s0": {
+   "episodes": 300,
+   "mean ep len": 500.0,
+   "trace Var no baseline": 718286.0625,
+   "trace Var with V(s)": 15659.064453125,
+   "ratio": 45.87030500130902,
+   "max|z| mean-diff (top-20 coords)": 0.88
+  },
+  "cartpole_value_s1": {
+   "episodes": 300,
+   "mean ep len": 500.0,
+   "trace Var no baseline": 1251170.875,
+   "trace Var with V(s)": 27258.33984375,
+   "ratio": 45.900479712702605,
+   "max|z| mean-diff (top-20 coords)": 1.18
+  },
+  "cartpole_value_s2": {
+   "episodes": 300,
+   "mean ep len": 500.0,
+   "trace Var no baseline": 553126.75,
+   "trace Var with V(s)": 10171.873046875,
+   "ratio": 54.37806266859882,
+   "max|z| mean-diff (top-20 coords)": 1.11
+  },
+  "cartpole_value_s3": {
+   "episodes": 300,
+   "mean ep len": 188.73,
+   "trace Var no baseline": 487057.15625,
+   "trace Var with V(s)": 1127.4532470703125,
+   "ratio": 431.99765268814303,
+   "max|z| mean-diff (top-20 coords)": 1.18
+  },
+  "cartpole_value_s4": {
+   "episodes": 300,
+   "mean ep len": 179.21333333333334,
+   "trace Var no baseline": 215208.25,
+   "trace Var with V(s)": 50.6439323425293,
+   "ratio": 4249.437988828415,
+   "max|z| mean-diff (top-20 coords)": 1.43
+  },
+  "geo-mean variance reduction": 183.87263222574492
+ }
+}

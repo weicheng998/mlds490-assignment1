@@ -1,0 +1,10 @@
+{
+ "run": "pong_value_s0",
+ "n": 500,
+ "greedy": false,
+ "mean": 16.3,
+ "std": 2.4019864858396507,
+ "min": 8.0,
+ "max": 21.0,
+ "mean_len": 3657.112
+}

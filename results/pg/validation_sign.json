@@ -1,0 +1,46 @@
+{
+ "P3 reward-sign / zero-lr control on CartPole (500 eps, 5 seeds)": {
+  "pass": true,
+  "+1 reward, no baseline": {
+   "last-50 mean length per seed": [
+    205.6,
+    9.3,
+    322.9,
+    107.2,
+    32.2
+   ],
+   "median": 107.2
+  },
+  "+1 reward, value baseline": {
+   "last-50 mean length per seed": [
+    148.6,
+    500.0,
+    138.6,
+    498.4,
+    411.7
+   ],
+   "median": 411.7
+  },
+  "lr = 0": {
+   "last-50 mean length per seed": [
+    18.9,
+    28.8,
+    21.2,
+    25.1,
+    21.8
+   ],
+   "median": 21.8
+  },
+  "-1 reward": {
+   "last-50 mean length per seed": [
+    9.3,
+    9.4,
+    9.4,
+    9.4,
+    9.4
+   ],
+   "median": 9.4
+  },
+  "prediction": "every -1 seed < 12; every lr=0 seed in (12,40) (random ~22); median(+1, baseline) > 100; median(+1, no baseline) > median(lr=0)"
+ }
+}

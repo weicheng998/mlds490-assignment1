@@ -1,0 +1,221 @@
+{
+ "note": "CartPole-v1, 1500 episodes, gamma 0.95, Adam; keys lr<lr>_b<episodes per update> (no baseline) and V_lr<lr> (value baseline, 1 ep/update). Run locally on CPU (--allow-cpu) as a stability study.",
+ "runs": {
+  "V_lr0.003": {
+   "0": {
+    "last100_mean": 144.07,
+    "first500_mean": 221.794,
+    "all_mean": 277.47066666666666
+   },
+   "1": {
+    "last100_mean": 464.45,
+    "first500_mean": 324.658,
+    "all_mean": 426.61266666666666
+   },
+   "2": {
+    "last100_mean": 498.72,
+    "first500_mean": 178.672,
+    "all_mean": 267.338
+   },
+   "3": {
+    "last100_mean": 482.51,
+    "first500_mean": 209.35,
+    "all_mean": 267.32466666666664
+   },
+   "4": {
+    "last100_mean": 499.97,
+    "first500_mean": 262.612,
+    "all_mean": 287.8213333333333
+   }
+  },
+  "V_lr0.01": {
+   "0": {
+    "last100_mean": 190.64,
+    "first500_mean": 154.658,
+    "all_mean": 194.75466666666668
+   },
+   "1": {
+    "last100_mean": 400.59,
+    "first500_mean": 172.33,
+    "all_mean": 213.94666666666666
+   },
+   "2": {
+    "last100_mean": 500.0,
+    "first500_mean": 253.082,
+    "all_mean": 402.6933333333333
+   },
+   "3": {
+    "last100_mean": 267.06,
+    "first500_mean": 385.596,
+    "all_mean": 320.00466666666665
+   },
+   "4": {
+    "last100_mean": 150.33,
+    "first500_mean": 357.722,
+    "all_mean": 217.01266666666666
+   }
+  },
+  "lr0.001_b1": {
+   "0": {
+    "last100_mean": 361.96,
+    "first500_mean": 111.688,
+    "all_mean": 233.89
+   },
+   "1": {
+    "last100_mean": 220.77,
+    "first500_mean": 127.522,
+    "all_mean": 217.27333333333334
+   },
+   "2": {
+    "last100_mean": 142.32,
+    "first500_mean": 119.968,
+    "all_mean": 155.66
+   },
+   "3": {
+    "last100_mean": 340.45,
+    "first500_mean": 115.492,
+    "all_mean": 181.95866666666666
+   },
+   "4": {
+    "last100_mean": 455.3,
+    "first500_mean": 92.17,
+    "all_mean": 218.47333333333333
+   }
+  },
+  "lr0.001_b5": {
+   "0": {
+    "last100_mean": 277.1,
+    "first500_mean": 37.828,
+    "all_mean": 150.97
+   },
+   "1": {
+    "last100_mean": 262.66,
+    "first500_mean": 45.308,
+    "all_mean": 152.652
+   },
+   "2": {
+    "last100_mean": 285.16,
+    "first500_mean": 49.178,
+    "all_mean": 147.20466666666667
+   },
+   "3": {
+    "last100_mean": 257.06,
+    "first500_mean": 48.588,
+    "all_mean": 139.51133333333334
+   },
+   "4": {
+    "last100_mean": 219.02,
+    "first500_mean": 51.1,
+    "all_mean": 143.85133333333334
+   }
+  },
+  "lr0.003_b1": {
+   "0": {
+    "last100_mean": 105.47,
+    "first500_mean": 163.506,
+    "all_mean": 184.68466666666666
+   },
+   "1": {
+    "last100_mean": 137.73,
+    "first500_mean": 230.5,
+    "all_mean": 212.20733333333334
+   },
+   "2": {
+    "last100_mean": 365.51,
+    "first500_mean": 231.598,
+    "all_mean": 186.13666666666666
+   },
+   "3": {
+    "last100_mean": 474.17,
+    "first500_mean": 115.79,
+    "all_mean": 185.832
+   },
+   "4": {
+    "last100_mean": 409.35,
+    "first500_mean": 105.792,
+    "all_mean": 234.47933333333333
+   }
+  },
+  "lr0.003_b5": {
+   "0": {
+    "last100_mean": 249.5,
+    "first500_mean": 123.41,
+    "all_mean": 223.95533333333333
+   },
+   "1": {
+    "last100_mean": 275.43,
+    "first500_mean": 112.448,
+    "all_mean": 211.08466666666666
+   },
+   "2": {
+    "last100_mean": 164.66,
+    "first500_mean": 100.442,
+    "all_mean": 160.16
+   },
+   "3": {
+    "last100_mean": 187.15,
+    "first500_mean": 127.404,
+    "all_mean": 192.60066666666665
+   },
+   "4": {
+    "last100_mean": 202.44,
+    "first500_mean": 113.322,
+    "all_mean": 186.00533333333334
+   }
+  },
+  "lr0.01_b1": {
+   "0": {
+    "last100_mean": 432.61,
+    "first500_mean": 113.31,
+    "all_mean": 274.40133333333335
+   },
+   "1": {
+    "last100_mean": 9.43,
+    "first500_mean": 9.446,
+    "all_mean": 9.389333333333333
+   },
+   "2": {
+    "last100_mean": 387.72,
+    "first500_mean": 211.13,
+    "all_mean": 149.38466666666667
+   },
+   "3": {
+    "last100_mean": 499.17,
+    "first500_mean": 55.34,
+    "all_mean": 92.72466666666666
+   },
+   "4": {
+    "last100_mean": 205.97,
+    "first500_mean": 29.838,
+    "all_mean": 121.53666666666666
+   }
+  },
+  "lr0.01_b5": {
+   "0": {
+    "last100_mean": 115.1,
+    "first500_mean": 156.678,
+    "all_mean": 147.47666666666666
+   },
+   "1": {
+    "last100_mean": 456.14,
+    "first500_mean": 102.446,
+    "all_mean": 248.66466666666668
+   },
+   "2": {
+    "last100_mean": 82.43,
+    "first500_mean": 101.05,
+    "all_mean": 118.044
+   },
+   "3": {
+    "last100_mean": 69.95,
+    "first500_mean": 110.756,
+    "all_mean": 140.242
+   },
+   "4": {
+    "last100_mean": 91.69,
+    "first500_mean": 112.682,
+    "all_mean": 120.722
+   }
+  }
+ }
+}

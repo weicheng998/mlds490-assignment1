@@ -1,0 +1,10 @@
+{
+ "run": "cartpole_none_s4",
+ "n": 500,
+ "greedy": false,
+ "mean": 449.044,
+ "std": 63.13964914844854,
+ "min": 259.0,
+ "max": 500.0,
+ "mean_len": 449.044
+}

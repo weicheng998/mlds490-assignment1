@@ -1,0 +1,10 @@
+{
+ "run": "cartpole_value_s2",
+ "n": 500,
+ "greedy": false,
+ "mean": 500.0,
+ "std": 0.0,
+ "min": 500.0,
+ "max": 500.0,
+ "mean_len": 500.0
+}

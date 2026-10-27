@@ -1,0 +1,10 @@
+.venv/
+checkpoints/
+__pycache__/
+*.pyc
+.DS_Store
+logs/
+*.pt
+report/*.aux
+report/*.log
+mlds_assignment1.pdf
